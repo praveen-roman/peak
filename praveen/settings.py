@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7guue7isoa11mwpc)%i%ab%xex9*kpx=e4@d3m4n5#63i05nvx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -127,12 +127,44 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+import os
+
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'  
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),  # Your static files directory
+]
+
+# For uploaded media files (user uploads)
+MEDIA_URL = '/uploads/'  # URL to access uploaded files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')  #
+
+MEDIA_URL = '/uploads/'  # URL path
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')  # P
+
+
+import os
+
+STATIC_URL = '/static/'  # URL for static files
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'shop/static'),  # Ensure the correct path to your static folder
+    os.path.join(BASE_DIR, 'static'),  # Your app's static files
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # This must be set
+
+
+
+# STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'shop/static'),  # Ensure the correct path to your static folder
+# ]
+# MEDIA_URL = '/uploads/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+
 
 # STATIC_URL = 'static/'
 # MEDIA_URL='/images/'
@@ -141,7 +173,7 @@ STATICFILES_DIRS = [
 # STATICFILES=[
 #     BASE_DIR/'static'
 # ]
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

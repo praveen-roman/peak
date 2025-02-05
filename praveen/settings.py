@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'praveen.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'final',
+        'NAME': 'waste',
         'HOST':'localhost',
         'USER':'root',
         'PASSWORD':'root',
